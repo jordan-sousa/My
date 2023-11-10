@@ -1,46 +1,52 @@
 import styled from "styled-components";
-import background_img from '../../assets/background_img.png';
 
 export const Container = styled.div`
+    width: 100%;
     height: 100vh;
 
-    display: flex;
-    align-items: stretch;
+    display: contents;
+    grid-template-columns: 100% auto;
+    grid-template-rows: 105px 128px auto 64px;
+    grid-template-areas: 
+    "brand header"
+    "content"
+    "newnote content";
+
+    background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+
+    > main {
+        grid-area: auto;
+        overflow-y: auto;
+        display: flex;
+        justify-content: center;
+    }
+    
 `;
 
-export const Form = styled.form`
-    padding: 0 136px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
 
-    text-align: center;
+  p {
+    margin-bottom: 10px;
+  }
 
-    > h1 {
-        font-size: 48px;
-        color: ${({theme}) => theme.COLORS.PINK};
-    }
-
-    > h2 {
-        font-size: 24px;
-        margin-top: 84px;
-        margin-bottom: 24px;
-    }
-
-    > p {
-        font-size: 14px;
-        color: ${({theme}) => theme.COLORS.GRAY_100};
-    }
-
-    > a {
-        margin-top: 124px;
-        color: ${({theme}) => theme.COLORS.GRAY_100};
-    }
 `;
 
-export const Background = styled.div`
-    flex: 1;
-    background: url(${background_img}) no-repeat center;
-    background-size: cover;
+export const Brand = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 `;
+
+export const NewNote = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  svg {
+    margin-right: 8px;
+  }
+`;
+

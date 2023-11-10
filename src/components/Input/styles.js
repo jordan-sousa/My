@@ -10,6 +10,7 @@ export const Container = styled.div`
     margin-bottom: 8px;
 
     > input {
+        color: ${({ theme }) => theme.COLORS.WHITE};
         border-radius: 10px;
         height: 56px;
         width: 100%;
@@ -19,7 +20,7 @@ export const Container = styled.div`
         margin: 0;
         border: 0;
 
-        &:placeholder {
+        &::placeholder {
             color: ${({ theme }) => theme.COLORS.WHITE};
         }
     }
